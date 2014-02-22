@@ -1,4 +1,4 @@
-#Chat Plays X#
+#Twitch Plays X#
 
 (inspired by [TwitchPlaysPokemon])
 
