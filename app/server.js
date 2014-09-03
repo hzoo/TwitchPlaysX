@@ -10,6 +10,7 @@ var client = new irc.Client(config.server, config.nick, {
     nick: config.nick,
     userName: config.nick,
     password: config.password,
+    secure: true,
     floodProtection: config.floodProtection,
     floodProtectionDelay: config.floodProtectionDelay,
     autoConnect: false,
