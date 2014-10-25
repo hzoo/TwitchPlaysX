@@ -18,7 +18,7 @@ Pokemon Red running in a Ubuntu 13.10 VM
 ![](http://i.imgur.com/aLSO6MK.gif)
 
 ####Misc####
-*https://github.com/eltacodeldiablo/ChatPlays/ used MutationObservers in the browser*
+*https://github.com/hzoo/ChatPlays/ used MutationObservers in the browser*
 
 Using IRC lets you get all the messages; you can't always get all messages through the browser (quickly or consistently) so this is a better approach overall as others have done.
 
@@ -34,7 +34,7 @@ sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
 # repo
-git clone https://github.com/eltacodeldiablo/ChatPlaysX.git
+git clone https://github.com/hzoo/ChatPlaysX.git
 cd ChatPlaysX
 # node packages (irc, printf)
 npm install
@@ -44,7 +44,7 @@ apt-get install xdotool
 
 ###If Windows###
 - Install [node.js] and npm
-- Download/clone files to computer - https://github.com/eltacodeldiablo/TwitchPlaysX/archive/master.zip
+- Download/clone files to computer - https://github.com/hzoo/TwitchPlaysX/archive/master.zip
 - Install node packages from command line `npm install` in folder (irc, printf)
 - Install [python] - http://www.python.org/download/releases/2.7.6/
     - make sure python is on your PATH
