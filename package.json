@@ -1,5 +1,5 @@
 {
-    "name": "ChatPlaysX",
+    "name": "TwitchPlaysX",
     "description": "Lets you use IRC to send inputs to a program and stream it, TwitchPlaysPokemon style",
     "version": "0.0.1",
     "dependencies": {
@@ -8,6 +8,6 @@
     },
     "repository" : {
         "type" : "git",
-        "url" : "https://github.com/eltacodeldiablo/ChatPlaysX.git"
+        "url" : "https://github.com/hzoo/TwitchPlaysX.git"
     }
 }
