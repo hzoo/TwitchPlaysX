@@ -4,14 +4,14 @@
 
 Lets you use IRC to send inputs to a program and stream it, TwitchPlaysPokemon style.
 
-Tested on Windows 8, Ubuntu 13.10. Should work on a Mac as well - just change the config file.
+Tested on Windows 8, Ubuntu 13.10. Should work on a Mac as well - just change the [config](/app/config.js) file.
+
+> on Windows, the program has to be focused in order to send keyboard inputs so you won't be able to use your computer at the same time unless you run the program in a virtual machine.
 
 ###In Action###
 ![](http://zippy.gfycat.com/ActiveLankyHorsemouse.gif)
 
 ![](http://zippy.gfycat.com/PoorDirectHuemul.gif)
-
-> on Windows, the program has to be focused to run key inputs so you won't be able to use your computer at the same time unless you use a virtual machine instead
 
 Pokemon Red running in a Ubuntu 13.10 VM
 
@@ -21,7 +21,6 @@ Pokemon Red running in a Ubuntu 13.10 VM
 *https://github.com/hzoo/ChatPlays/ used MutationObservers in the browser*
 
 Using IRC lets you get all the messages; you can't always get all messages through the browser (quickly or consistently) so this is a better approach overall as others have done.
-
 
 Installation
 --------------
@@ -110,6 +109,9 @@ node ./server.js
     - otherwise: **xdotool**
 - Stream it!
     - If on linux: you need to use an ffmpeg script, [Twitch-Streamer-Linux](https://github.com/wargio/Twitch-Streamer-Linux), [SimpleScreenRecorder](http://www.maartenbaert.be/simplescreenrecorder/), [WebcamStudio](http://www.ws4gl.org/)
+
+## Contributions
+Feel free to give suggestions or report bugs
 
 [node.js]:http://nodejs.org
 [python win32]:http://starship.python.net/~skippy/win32/Downloads.html
