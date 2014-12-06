@@ -10,7 +10,9 @@ var client = new irc.Client(config.server, config.nick, {
     nick: config.nick,
     userName: config.nick,
     password: config.password,
-    secure: true,
+    //This has to be false, since SSL in NOT supported by twitch IRC (anymore?)
+    // see: http://help.twitch.tv/customer/portal/articles/1302780-twitch-irc
+    secure: false,
     floodProtection: config.floodProtection,
     floodProtectionDelay: config.floodProtectionDelay,
     autoConnect: false,
@@ -19,7 +21,7 @@ var client = new irc.Client(config.server, config.nick, {
 
 client.addListener('message' + config.channel, function (from, message) {
     if (message.match(config.regexCommands)) {
-        
+
         if (config.printToConsole) {
             //format console output if needed
             var maxName = config.maxCharName,
@@ -33,7 +35,7 @@ client.addListener('message' + config.channel, function (from, message) {
 
         //send message to program
         if (config.sendKey) {
-            keyHandler.sendKey(message.toLowerCase(),config.programName);
+            keyHandler.sendKey(message.toLowerCase());
         }
     }
 });

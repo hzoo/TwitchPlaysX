@@ -25,13 +25,15 @@ var ircConfig = {
     //ex: #twitchplayspokemon
     channel: '#channelHere',
     //if you want to join more than one channel
+    // CLARIFICATION: Main channel has to be in here too!
     channelList: ['#channelHere'],
 
     //other IRC
     //default
     port: 6667,
     //needed for password
-    sasl: true,
+    // Twitch uses server pass, no sasl
+    sasl: false,
     //if you want to get all messages in real-time keep false
     floodProtection: false,
     //only needed if true - in milliseconds
