@@ -1,6 +1,7 @@
 var exec = require('child_process').exec,
 config = require('./config.js'),
 lastTime = {},
+windowID = 'unfilled',
 throttledCommands = config.throttledCommands,
 regexThrottle = new RegExp('^(' + throttledCommands.join('|') + ')$', 'i'),
 regexFilter = new RegExp('^(' + config.filteredCommands.join('|') + ')$', 'i');
@@ -9,7 +10,16 @@ for (var i = 0; i < throttledCommands.length; i++) {
     lastTime[throttledCommands[i]] = new Date().getTime();
 }
 
-function sendKey(command,programName) {
+function setWindowID(){
+    if(config.os === 'other' & windowID === 'unfilled') {
+        exec('xdotool search --onlyvisible --name ' + config.programName, function (error, stdout) {
+            windowID = stdout.trim();
+            // console.log(key, windowID);
+        });
+    }
+}
+
+function sendKey(command) {
     //if doesn't match the filtered words
     if (!command.match(regexFilter)) {
         var allowKey = true,
@@ -26,18 +36,17 @@ function sendKey(command,programName) {
         if (allowKey) {
             //if xdotool is installed
             if (config.os === 'other') {
-                //send to correct window
-                exec('xdotool search --onlyvisible --name ' + programName, function (error, stdout) {
-                    var windowID = stdout.trim();
-                    // console.log(key, windowID);
-                    exec('xdotool key --window ' + windowID + ' --delay ' + config.delay + ' ' + key);
-                });
-            //use python on windows
+                //Send to preset window under non-windows systems
+                exec('xdotool key --window ' + windowID + ' --delay ' + config.delay + ' ' + key);
             } else {
+                //use python on windows
                 exec('key.py ' + key);
             }
         }
     }
 }
+
+//Only actually does something when not running under windows.
+setWindowID();
 
 exports.sendKey = sendKey;
