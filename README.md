@@ -33,8 +33,8 @@ sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
 # repo
-git clone https://github.com/hzoo/ChatPlaysX.git
-cd ChatPlaysX
+git clone https://github.com/hzoo/TwitchPlaysX.git
+cd TwitchPlaysX
 # node packages (irc, printf)
 npm install
 # xdotool or go to http://www.semicomplete.com/projects/xdotool/
