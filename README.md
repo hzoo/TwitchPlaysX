@@ -22,7 +22,7 @@ Pokemon Red running in a Ubuntu 13.10 VM
 
 Using IRC lets you get all the messages; you can't always get all messages through the browser (quickly or consistently) so this is a better approach overall as others have done.
 
-Installation
+Installation (node, etc)
 --------------
 ###If Linux###
 ```sh
@@ -48,6 +48,9 @@ apt-get install xdotool
 - Install [python] - http://www.python.org/download/releases/2.7.6/
     - make sure python is on your PATH
 - Install [python win32] package - http://sourceforge.net/projects/pywin32/files/pywin32/
+
+Setup
+--------------
 
 ###Create config.json###
 - CONFIG_PROGRAM_NAME: Find out the title of the window
@@ -86,6 +89,7 @@ More explanations of the config options in the [config.js](/app/config.js) file
 
 ###Run Server###
 ```sh
+# go to the root folder, make sure you did `npm install`, then
 npm start
 ```
 
