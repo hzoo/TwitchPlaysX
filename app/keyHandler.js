@@ -19,11 +19,18 @@ function setWindowID() {
     }
 }
 
+var defaultKeyMap = config.keymap || {
+    'up':'Up','left':'Left','down':'Down','right':'Right',
+    'a':'a','b':'b',
+    'x':'x','y':'y',
+    'start':'s','select':'e'
+};
+
 function sendKey(command) {
     //if doesn't match the filtered words
     if (!command.match(regexFilter)) {
         var allowKey = true,
-        key = config.keymap[command];
+        key = defaultKeyMap[command];
         //throttle certain commands (not individually though)
         if (key.match(regexThrottle)) {
             var newTime = new Date().getTime();

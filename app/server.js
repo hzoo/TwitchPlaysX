@@ -13,14 +13,17 @@ var client = new irc.Client(config.server, config.nick, {
     //This has to be false, since SSL in NOT supported by twitch IRC (anymore?)
     // see: http://help.twitch.tv/customer/portal/articles/1302780-twitch-irc
     secure: false,
-    floodProtection: config.floodProtection,
-    floodProtectionDelay: config.floodProtectionDelay,
+    floodProtection: config.floodProtection || false,
+    floodProtectionDelay: config.floodProtectionDelay || 100,
     autoConnect: false,
     autoRejoin: true
 });
 
+var commandRegex = config.regexCommands ||
+new RegExp('^(' + commands.join('|') + ')$', 'i');
+
 client.addListener('message' + config.channel, function(from, message) {
-    if (message.match(config.regexCommands)) {
+    if (message.match(commandRegex)) {
 
         if (config.printToConsole) {
             //format console output if needed
@@ -33,10 +36,8 @@ client.addListener('message' + config.channel, function(from, message) {
                 logFrom, logMessage));
         }
 
-        //send message to program
-        if (config.sendKey) {
-            keyHandler.sendKey(message.toLowerCase());
-        }
+        // always send message to program
+        keyHandler.sendKey(message.toLowerCase());
     }
 });
 
