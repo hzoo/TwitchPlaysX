@@ -1,6 +1,9 @@
 //list of commands to filter for
 var commands = [
-    'left', 'right', 'up', 'down', 'start', 'select', 'a', 'b', 'democracy', 'anarchy'
+    'left', 'right', 'up', 'down',
+    'start', 'select',
+    'a', 'b',
+    'democracy', 'anarchy'
 ];
 
 var ircConfig = {
@@ -18,8 +21,6 @@ var ircConfig = {
     server: 'irc.twitch.tv',
     //ex: your twitch username
     nick: 'usernameHere',
-    //ex: your twitch username
-    userName: 'usernameHere',
     //oauth token from www.twitchapps.com/tmi
     password: 'oauthTokenHere',
     //ex: #twitchplayspokemon
@@ -29,11 +30,8 @@ var ircConfig = {
     channelList: ['#channelHere'],
 
     //other IRC
-    //default
     port: 6667,
-    //needed for password
-    // Twitch uses server pass, no sasl
-    sasl: false,
+
     //if you want to get all messages in real-time keep false
     floodProtection: false,
     //only needed if true - in milliseconds

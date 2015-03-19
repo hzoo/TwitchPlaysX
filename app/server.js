@@ -5,8 +5,8 @@ config = require('./config.js');
 
 var client = new irc.Client(config.server, config.nick, {
     channels: config.channelList,
-    port: config.port,
-    sasl: config.sasl,
+    port: config.port || 6667,
+    sasl: false,
     nick: config.nick,
     userName: config.nick,
     password: config.password,
