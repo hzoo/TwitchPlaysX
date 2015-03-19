@@ -10,9 +10,9 @@ for (var i = 0; i < throttledCommands.length; i++) {
     lastTime[throttledCommands[i]] = new Date().getTime();
 }
 
-function setWindowID(){
-    if(config.os === 'other' & windowID === 'unfilled') {
-        exec('xdotool search --onlyvisible --name ' + config.programName, function (error, stdout) {
+function setWindowID() {
+    if (config.os === 'other' & windowID === 'unfilled') {
+        exec('xdotool search --onlyvisible --name ' + config.programName, function(error, stdout) {
             windowID = stdout.trim();
             // console.log(key, windowID);
         });

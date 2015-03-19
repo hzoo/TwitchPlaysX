@@ -1,0 +1,78 @@
+{
+  "esnext": true,
+  "excludeFiles": [
+    "node_modules/**",
+    "app/bower_components/**"
+  ],
+  "fileExtensions": [".js"],
+  "disallowKeywords": ["with"],
+  "disallowMixedSpacesAndTabs": true,
+  "disallowMultipleLineStrings": true,
+  "disallowNewlineBeforeBlockStatements": true,
+  "disallowSpaceAfterObjectKeys": true,
+  "disallowSpaceAfterPrefixUnaryOperators": [
+    "++", "--",
+    "+", "-",
+    "~",
+    "!"
+  ],
+  "disallowSpaceBeforeBinaryOperators": [","],
+  "disallowSpaceBeforePostfixUnaryOperators": [
+    "++", "--"
+  ],
+  "disallowSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpacesInCallExpression": true,
+  "disallowSpacesInFunctionDeclaration": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpacesInNamedFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpacesInsideArrayBrackets": true,
+  "disallowSpacesInsideParentheses": true,
+  "disallowTrailingComma": true,
+  "disallowTrailingWhitespace": true,
+  "requireCommaBeforeLineBreak": true,
+  "requireLineFeedAtFileEnd": true,
+  "requireSpaceAfterBinaryOperators": [
+    "?", ":",
+    "+", "-", "/", "*", "%",
+    "==", "===", "!=", "!==",
+    ">", ">=", "<", "<=",
+    "&&", "||"
+  ],
+  "requireSpaceBeforeBinaryOperators": [
+    "?", ":",
+    "+", "-", "/", "*", "%",
+    "==", "===", "!=", "!==",
+    ">", ">=", "<", "<=",
+    "&&", "||"
+  ],
+  "requireSpaceBeforeKeywords": [
+      "else",
+      "while",
+      "catch"
+  ],
+  "requireSpaceAfterKeywords": [
+    "if", "else",
+    "for", "while", "do",
+    "switch",
+    "return",
+    "try", "catch"
+  ],
+  "requireSpaceBeforeBlockStatements": true,
+  "requireSpaceBetweenArguments": true,
+  "requireSpacesInConditionalExpression": {
+    "afterTest": true,
+    "beforeConsequent": true,
+    "afterConsequent": true,
+    "beforeAlternate": true
+  },
+  "requireSpacesInFunction": {
+    "beforeOpeningCurlyBrace": true
+  },
+  "validateLineBreaks": "LF",
+  "validateParameterSeparator": ", "
+}

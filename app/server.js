@@ -19,18 +19,18 @@ var client = new irc.Client(config.server, config.nick, {
     autoRejoin: true
 });
 
-client.addListener('message' + config.channel, function (from, message) {
+client.addListener('message' + config.channel, function(from, message) {
     if (message.match(config.regexCommands)) {
 
         if (config.printToConsole) {
             //format console output if needed
             var maxName = config.maxCharName,
             maxCommand = config.maxCharCommand,
-            logFrom = from.substring(0,maxName),
-            logMessage = message.substring(0,6).toLowerCase();
+            logFrom = from.substring(0, maxName),
+            logMessage = message.substring(0, 6).toLowerCase();
             //format log
             console.log(printf('%-' + maxName + 's % ' + maxCommand + 's',
-                logFrom,logMessage));
+                logFrom, logMessage));
         }
 
         //send message to program
