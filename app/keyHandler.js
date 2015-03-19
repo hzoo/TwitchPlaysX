@@ -47,7 +47,9 @@ function sendKey(command) {
                 exec('xdotool key --window ' + windowID + ' --delay ' + config.delay + ' ' + key);
             } else {
                 //use python on windows
-                exec('key.py ' + key);
+                // "VisualBoyAdvance"
+                // "DeSmuME 0.9.10 x64"
+                exec('key.py' + '  ' + config.programName + ' ' + key);
             }
         }
     }

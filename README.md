@@ -57,17 +57,23 @@ apt-get install xdotool
 Create a config.json file (to store your twitch name and oauth token)
 go to http://www.twitchapps.com/tmi to get your token
 
+More explanations of the config options in the [config.js](/app/config.js) file
+
 ```js
 // example config.json
+// you can also set the environment variables in node (for heroku)
 {
-    // you can also set the environment variables in node (for heroku)
+    
     "TWITCH_OAUTH": "OAUTH_HERE",
     "TWITCH_USERNAME": "TWITCH_NAME_HERE",
-    "TWITCH_CHANNEL": "#CHANNEL_HERE", // use the #
-    "CONFIG_OS": "other",
+    "TWITCH_CHANNEL": "#CHANNEL_HERE",
+    "CONFIG_OS": "windows",
     "CONFIG_PROGRAM_NAME": "VBA",
-    "CONFIG_MAX_CHAR_COMMAND": 10,
-    "CONFIG_SEND_KEY": false
+    "CONFIG_MAX_CHAR_NAME": 8,
+    "CONFIG_MAX_CHAR_COMMAND": 20,
+    "CONFIG_SEND_KEY": true,
+    "CONFIG_FILTERED_COMMANDS": [],
+    "CONFIG_THROTTLED_COMMANDS": []
 }
 ```
 
@@ -75,16 +81,12 @@ go to http://www.twitchapps.com/tmi to get your token
 
 ###Setup Program###
 - **Open program** to send keys to (VisualBoyAdvance, Desmume)
-- Optionally, change the controls (in the program itself, `keymap` in config.js, keys.py for windows)
+- Optionally, change the controls (in the program itself, `defaultKeyMap` in keyHandler.js, keys.py for windows)
 - Optionally, find the option to allow program to receive background inputs (linux)
 
-###Setup Server###
-- cd to folder
-- **run server.js**
-
+###Run Server###
 ```sh
-cd app
-node ./server.js
+npm start
 ```
 
 ##Method##
