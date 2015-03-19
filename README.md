@@ -26,7 +26,7 @@ Installation
 --------------
 ###If Linux###
 ```sh
-# node.js
+# node.js: can use nvm, apt-get, the ppa below, or https://nodejs.org/download/
 sudo apt-get update
 sudo apt-get install -y python-software-properties python g++ make
 sudo add-apt-repository ppa:chris-lea/node.js
@@ -49,38 +49,26 @@ apt-get install xdotool
     - make sure python is on your PATH
 - Install [python win32] package - http://sourceforge.net/projects/pywin32/files/pywin32/
 
-###Modify config.js###
-- change settings for your `os`, `userName`,`password`,`channel`, etc
-- Find out the title of the window
+###Create config.json###
+- CONFIG_PROGRAM_NAME: Find out the title of the window
     - Ex: VisualBoyAdvance, Desmume
       - for notepad.exe it would be "Notepad" or "Untitled - Notepad"
-    - change `programName` in the [config.js](/app/config.js) file
 
-```javascript
-var ircConfig = {
-    //either 'windows' or 'other'
-    os: 'windows',
+Create a config.json file (to store your twitch name and oauth token)
+go to http://www.twitchapps.com/tmi to get your token
 
-    //title of the window of the program
-    programName: 'VBA',
-
-    //ex: irc.twitch.tv or 199.9.252.26
-    server: 'irc.twitch.tv',
-
-    //ex: your twitch username
-    nick: 'usernameHere',
-    //ex: your twitch username
-    userName: 'usernameHere',
-
-    //oauth token from www.twitchapps.com/tmi
-    password: 'oauthTokenHere',
-
-    //ex: #twitchplayspokemon
-    channel: '#channelHere',
-    //if you want to join more than one channel
-    channelList: ['#channelHere'],
-
-    //... rest of file below
+```js
+// example config.json
+{
+    // you can also set the environment variables in node (for heroku)
+    "TWITCH_OAUTH": "OAUTH_HERE",
+    "TWITCH_USERNAME": "TWITCH_NAME_HERE",
+    "TWITCH_CHANNEL": "#CHANNEL_HERE", // use the #
+    "CONFIG_OS": "other",
+    "CONFIG_PROGRAM_NAME": "VBA",
+    "CONFIG_MAX_CHAR_COMMAND": 10,
+    "CONFIG_SEND_KEY": false
+}
 ```
 
 ##Running It!##

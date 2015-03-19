@@ -4,7 +4,7 @@ keyHandler = require('./keyHandler.js'),
 config = require('./config.js');
 
 var client = new irc.Client(config.server, config.nick, {
-    channels: config.channelList,
+    channels: [config.channel],
     port: config.port || 6667,
     sasl: false,
     nick: config.nick,
@@ -20,7 +20,7 @@ var client = new irc.Client(config.server, config.nick, {
 });
 
 var commandRegex = config.regexCommands ||
-new RegExp('^(' + commands.join('|') + ')$', 'i');
+new RegExp('^(' + config.commands.join('|') + ')$', 'i');
 
 client.addListener('message' + config.channel, function(from, message) {
     if (message.match(commandRegex)) {
@@ -36,8 +36,10 @@ client.addListener('message' + config.channel, function(from, message) {
                 logFrom, logMessage));
         }
 
-        // always send message to program
-        keyHandler.sendKey(message.toLowerCase());
+        // Should the message be sent the program?
+        if (config.sendKey) {
+            keyHandler.sendKey(message.toLowerCase());
+        }
     }
 });
 
@@ -46,3 +48,4 @@ client.addListener('error', function(message) {
 });
 
 client.connect();
+console.log('Connecting...');
