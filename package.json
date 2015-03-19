@@ -3,8 +3,8 @@
     "description": "Lets you use IRC to send inputs to a program and stream it, TwitchPlaysPokemon style",
     "version": "0.0.1",
     "dependencies": {
-        "irc": "~0.3.6",
-        "printf": "~0.1.2"
+        "irc": "~0.3.9",
+        "printf": "~0.2.1"
     },
     "repository" : {
         "type" : "git",
