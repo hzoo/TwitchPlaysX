@@ -30,7 +30,7 @@ function sendKey(command) {
     //if doesn't match the filtered words
     if (!command.match(regexFilter)) {
         var allowKey = true,
-        key = defaultKeyMap[command];
+        key = defaultKeyMap[command] || command;
         //throttle certain commands (not individually though)
         if (key.match(regexThrottle)) {
             var newTime = new Date().getTime();
