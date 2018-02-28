@@ -1,32 +1,45 @@
-var irc = require('irc'),
+var tmi = require('tmi.js'),
 printf = require('printf'),
 keyHandler = require('./keyHandler.js'),
 config = require('./config.js');
 
-var client = new irc.Client(config.server, config.nick, {
-    channels: [config.channel],
-    port: config.port || 6667,
+var client = new tmi.client(
+{
+    options: {
+        debug: false
+    },
+    connection: {
+        server: config.server,
+        port: config.port || 80,
+        secure: false,
+        reconnect: true
+    },
+    identity: {
+        username: config.nick,
+        password: config.password
+    },
+    channels: [config.channel]
+}
+
+// TODO: These configurations cannot fit inside tmi.js
+/*{
     sasl: false,
-    nick: config.nick,
-    userName: config.nick,
-    password: config.password,
-    //This has to be false, since SSL in NOT supported by twitch IRC (anymore?)
-    // see: http://help.twitch.tv/customer/portal/articles/1302780-twitch-irc
-    secure: false,
     floodProtection: config.floodProtection || false,
-    floodProtectionDelay: config.floodProtectionDelay || 100,
-    autoConnect: false,
-    autoRejoin: true
-});
+    floodProtectionDelay: config.floodProtectionDelay || 100
+}
+*/
+);
 
 var commandRegex = config.regexCommands ||
 new RegExp('^(' + config.commands.join('|') + ')$', 'i');
 
-client.addListener('message' + config.channel, function(from, message) {
-    if (message.match(commandRegex)) {
+client.addListener('chat', function(channel, userstate, message, self) {
+    //console.log("Message, from channel: " + channel + ", message: " + message);
+    if (config.channel == channel && message.match(commandRegex)) {
 
         if (config.printToConsole) {
             //format console output if needed
+            var from = userstate.username;
             var maxName = config.maxCharName,
             maxCommand = config.maxCharCommand,
             logFrom = from.substring(0, maxName),
@@ -43,9 +56,18 @@ client.addListener('message' + config.channel, function(from, message) {
     }
 });
 
-client.addListener('error', function(message) {
-    console.log('error: ', message);
+client.addListener('connected', function(address, port) {
+    console.log('Connected into the server!');
+});
+
+client.addListener('logon', function() {
+    console.log('Logged into the server!');
+});
+
+client.addListener("disconnected", function (reason) {
+    console.log('Disconnected from the server! Reason: ' + reason);
 });
 
 client.connect();
 console.log('Connecting...');
+console.log(config.server + ': ' + config.nick);
