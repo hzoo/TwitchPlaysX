@@ -10,8 +10,8 @@ var client = new tmi.client(
     },
     connection: {
         server: config.server,
-        port: config.port || 80,
-        secure: false,
+        port: config.port || 443,
+        secure: true,
         reconnect: true
     },
     identity: {
@@ -71,3 +71,4 @@ client.addListener("disconnected", function (reason) {
 client.connect();
 console.log('Connecting...');
 console.log(config.server + ': ' + config.nick);
+console.log('Channel: ' + config.channel + ", as username: " + config.nick);
