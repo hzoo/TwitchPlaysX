@@ -33,13 +33,12 @@ var client = new tmi.client(
 var commandRegex = config.regexCommands ||
 new RegExp('^(' + config.commands.join('|') + ')$', 'i');
 
-client.addListener('chat', function(channel, userstate, message, self) {
-    //console.log("Message, from channel: " + channel + ", message: " + message);
-    if (config.channel == channel && message.match(commandRegex)) {
-
+client.on('message', function(channel, tags, message, self) {
+    if (self) return;
+    if (`#${config.channel}` === channel && message.match(commandRegex)) {
         if (config.printToConsole) {
             //format console output if needed
-            var from = userstate.username;
+            var from = tags.username;
             var maxName = config.maxCharName,
             maxCommand = config.maxCharCommand,
             logFrom = from.substring(0, maxName),

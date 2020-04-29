@@ -6,13 +6,17 @@
   "dependencies": {
     "nconf": "^0.7.2",
     "printf": "~0.2.1",
-    "tmi.js": "^1.2.1"
+    "tmi.js": "^1.5.0"
   },
   "scripts": {
-    "start": "node ./app/server.js"
+    "start": "node ./app/server.js",
+    "lint": "prettier --write app/**"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/hzoo/TwitchPlaysX.git"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
   }
 }
