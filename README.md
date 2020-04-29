@@ -2,7 +2,7 @@
 
 > (inspired by [TwitchPlaysPokemon])
 
-Connect to Twitch's messaging service (TMI via [`tmi.js`](https://github.com/tmijs/tmi.js)) (previously IRC) to send inputs to a program and stream it, TwitchPlaysPokemon style. Should support linux/windows/mac.
+Connect to Twitch's messaging service, (TMI) via [`tmi.js`](https://github.com/tmijs/tmi.js (previously using IRC) to send inputs to a program and stream it, TwitchPlaysPokemon style. Should support linux/windows/mac.
 
 ### In Action
 
@@ -20,31 +20,26 @@ Currently for Windows, the program has to be focused in order to send keyboard i
 
 ## Installation
 
-- Install [Node.js]
-- Clone the repo: `git clone https://github.com/hzoo/TwitchPlaysX.git; cd TwitchPlaysX`
-- Install node_modules: `npm install`
-- Linux: install [xdotool](http://www.semicomplete.com/projects/xdotool/): `apt-get install xdotool`
-- Windows: install [python] and [python win32]
+- Install [Node.js] (check that you can run node/npm)
+- Clone the repo: `git clone https://github.com/hzoo/TwitchPlaysX.git`
+- Install `node_modules` in the TwitchPlaysX folder: `npm install`
+- If Linux: install [xdotool](http://www.semicomplete.com/projects/xdotool/): `apt-get install xdotool`
+- If Windows: install [python] and [python win32]
 
 ## Setup
 
 ### Modify `app/config.js` at the root of this project
-- CONFIG_PROGRAM_NAME: Find out the title of the window
-    - Ex: VisualBoyAdvance, Desmume
-      - for notepad.exe it would be "Notepad" or "Untitled - Notepad"
-- TWITCH_CHANNEL: the Twitch channel you want to listen for messages on
+- `CONFIG_PROGRAM_NAME`: Find out the title of the window that you will be sending key inputs to
+    - Example: `VisualBoyAdvance`, `Desmume`
+      - For `notepad.exe` it would be "Notepad" or "Untitled - Notepad"
+- `TWITCH_CHANNEL`: the Twitch channel you want to listen for messages on (`twitchplayspokemon`)
 
-### Setup Program
+### Setup your program 
 
-- **Open program** to send keys to (VisualBoyAdvance, Desmume)
-- Optionally, change the controls (in the program itself, `defaultKeyMap` in keyHandler.js, keys.py for windows)
-- Optionally, find the option to allow program to receive background inputs (linux)
+- Start the program you are going to be sending keys to: (VisualBoyAdvance, Desmume)
+- Depending on the program, change the controls (in `defaultKeyMap` in `app/keyHandler.js`, `app/keys.py` for windows)
 
-### Run Server
-
-```sh
-npm start
-```
+### Run the server with `npm start`
 
 ### Misc
 
