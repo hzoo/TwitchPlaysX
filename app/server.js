@@ -38,4 +38,10 @@ client.addListener("disconnected", function (reason) {
 });
 
 client.connect();
+if (config.channel === 'twitchplayspokemon') {
+  console.log("");
+  console.log("'twitchplayspokemon' is the default channel! Otherwise, run with the environment variable: ");
+  console.log("TWITCH_CHANNEL=mychannelhere npm start");
+  console.log("");
+}
 console.log(`Connecting to /${config.channel}..`);
