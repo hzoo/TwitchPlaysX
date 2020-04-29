@@ -64,6 +64,6 @@ Using IRC lets you get all the messages; you can't always get all messages throu
 Feel free to give suggestions or report bugs!
 
 [node.js]:http://nodejs.org
-[python win32]:https://sourceforge.net/projects/pywin32/
+[python win32]:https://github.com/mhammond/pywin32/releases
 [python]:http://www.python.org/
 [TwitchPlaysPokemon]:http://twitch.tv/TwitchPlaysPokemon
