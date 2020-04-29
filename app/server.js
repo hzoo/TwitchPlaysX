@@ -1,10 +1,9 @@
-let tmi = require("tmi.js"),
-  keyHandler = require("./keyHandler.js"),
-  config = require("./config.js");
+const tmi = require("tmi.js"),
+const keyHandler = require("./keyHandler.js"),
+const config = require("./config.js");
 
-// Maximum characters to show for a person's name in the console log
-let maxCharName = 8;
-
+// https://github.com/tmijs/tmi.js#tmijs
+// for more options
 const client = new tmi.client({
   connection: {
     secure: true,
@@ -32,7 +31,7 @@ client.on("message", function (channel, tags, message, self) {
 });
 
 client.addListener("connected", function (address, port) {
-  console.log("Connected into the server!");
+  console.log("Connected! Waiting for messages..");
 });
 client.addListener("disconnected", function (reason) {
   console.log("Disconnected from the server! Reason: " + reason);
