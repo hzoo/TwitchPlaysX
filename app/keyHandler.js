@@ -1,4 +1,4 @@
-var exec = require("child_process").exec,
+let exec = require("child_process").exec,
   config = require("./config.js"),
   lastTime = {},
   windowID = "unfilled",
@@ -9,12 +9,10 @@ var exec = require("child_process").exec,
     "i"
   );
 
-for (var i = 0; i < throttledCommands.length; i++) {
-  lastTime[throttledCommands[i]] = new Date().getTime();
-}
+let isWindows = process.platform === "win32";
 
-function setWindowID() {
-  if ((config.os === "other") & (windowID === "unfilled")) {
+(function setWindowID() {
+  if (!isWindows & windowID === "unfilled") {
     exec("xdotool search --onlyvisible --name " + config.programName, function (
       error,
       stdout
@@ -23,9 +21,13 @@ function setWindowID() {
       // console.log(key, windowID);
     });
   }
+})();
+
+for (let i = 0; i < throttledCommands.length; i++) {
+  lastTime[throttledCommands[i]] = new Date().getTime();
 }
 
-var defaultKeyMap = config.keymap || {
+let defaultKeyMap = config.keymap || {
   up: "Up",
   left: "Left",
   down: "Down",
@@ -41,11 +43,11 @@ var defaultKeyMap = config.keymap || {
 function sendKey(command) {
   //if doesn't match the filtered words
   if (!command.match(regexFilter)) {
-    var allowKey = true,
-      key = defaultKeyMap[command] || command;
+    let allowKey = true;
+    let key = defaultKeyMap[command] || command;
     //throttle certain commands (not individually though)
     if (key.match(regexThrottle)) {
-      var newTime = new Date().getTime();
+      let newTime = new Date().getTime();
       if (newTime - lastTime[key] < config.timeToWait) {
         allowKey = false;
       } else {
@@ -53,8 +55,12 @@ function sendKey(command) {
       }
     }
     if (allowKey) {
-      //if xdotool is installed
-      if (config.os === "other") {
+      if (isWindows) {
+        //use python on windows
+        // "VisualBoyAdvance"
+        // "DeSmuME 0.9.10 x64"
+        exec("key.py" + "  " + config.programName + " " + key);
+      } else {
         //Send to preset window under non-windows systems
         exec(
           "xdotool key --window " +
@@ -64,17 +70,9 @@ function sendKey(command) {
             " " +
             key
         );
-      } else {
-        //use python on windows
-        // "VisualBoyAdvance"
-        // "DeSmuME 0.9.10 x64"
-        exec("key.py" + "  " + config.programName + " " + key);
       }
     }
   }
 }
-
-//Only actually does something when not running under windows.
-setWindowID();
 
 exports.sendKey = sendKey;
