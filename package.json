@@ -1,15 +1,15 @@
 {
   "name": "TwitchPlaysX",
+  "private": true,
   "description": "Lets you use IRC to send inputs to a program and stream it, TwitchPlaysPokemon style",
   "version": "0.0.1",
   "dependencies": {
-    "irc": "^0.5.2",
     "nconf": "^0.7.2",
     "printf": "~0.2.1",
     "tmi.js": "^1.2.1"
   },
   "scripts": {
-    "start": "node ./app/server"
+    "start": "node ./app/server.js"
   },
   "repository": {
     "type": "git",
