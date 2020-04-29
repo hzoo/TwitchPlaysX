@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "node ./app/server.js",
-    "lint": "prettier --write app/**"
+    "lint": "prettier --write app/*.js"
   },
   "repository": {
     "type": "git",
