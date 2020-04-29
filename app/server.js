@@ -1,5 +1,5 @@
-const tmi = require("tmi.js"),
-const keyHandler = require("./keyHandler.js"),
+const tmi = require("tmi.js");
+const keyHandler = require("./keyHandler.js");
 const config = require("./config.js");
 
 // https://github.com/tmijs/tmi.js#tmijs
