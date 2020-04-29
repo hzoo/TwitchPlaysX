@@ -42,7 +42,7 @@ apt-get install xdotool
 ```
 
 ### If Windows
-- Install [node.js] and npm
+- Install [Node.js]
 - Download/clone files to computer - https://github.com/hzoo/TwitchPlaysX/archive/master.zip
 - Install node packages from command line `npm install` in folder (irc, printf)
 - Install [python] - http://www.python.org/download/releases/2.7.6/
@@ -52,33 +52,11 @@ apt-get install xdotool
 Setup
 --------------
 
-### Create config.json
+### Modify `app/config.js` at the root of this project
 - CONFIG_PROGRAM_NAME: Find out the title of the window
     - Ex: VisualBoyAdvance, Desmume
       - for notepad.exe it would be "Notepad" or "Untitled - Notepad"
-
-Create a config.json file (to store your twitch name and oauth token)
-go to http://www.twitchapps.com/tmi to get your token
-
-More explanations of the config options in the [config.js](/app/config.js) file
-
-```js
-// example config.json
-// you can also set the environment variables in node (for heroku)
-{
-    
-    "TWITCH_OAUTH": "OAUTH_HERE",
-    "TWITCH_USERNAME": "TWITCH_NAME_HERE",
-    "TWITCH_CHANNEL": "#CHANNEL_HERE",
-    "CONFIG_OS": "windows",
-    "CONFIG_PROGRAM_NAME": "VBA",
-    "CONFIG_MAX_CHAR_NAME": 8,
-    "CONFIG_MAX_CHAR_COMMAND": 20,
-    "CONFIG_SEND_KEY": true,
-    "CONFIG_FILTERED_COMMANDS": [],
-    "CONFIG_THROTTLED_COMMANDS": []
-}
-```
+- TWITCH_CHANNEL: the Twitch channel you want to listen for messages on
 
 ## Running It!
 
