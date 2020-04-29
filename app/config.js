@@ -29,7 +29,7 @@ var ircConfig = {
     programName: programName || 'VBA',
 
     // Ex: irc.twitch.tv or 199.9.252.26
-    server: serverIP || 'irc.twitch.tv',
+    server: serverIP || 'irc-ws.chat.twitch.tv',
     // Your twitch username
     nick: username,
     // oauth token from www.twitchapps.com/tmi
