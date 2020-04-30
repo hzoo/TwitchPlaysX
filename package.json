@@ -4,11 +4,11 @@
   "description": "Lets you use IRC to send inputs to a program and stream it, TwitchPlaysPokemon style",
   "version": "0.0.1",
   "dependencies": {
-    "tmi.js": "^1.5.0"
+    "tmi.js": "1.5.0"
   },
   "scripts": {
-    "start": "node ./app/server.js",
-    "lint": "prettier --write app/*.js"
+    "start": "node server.js",
+    "lint": "prettier --write *.js"
   },
   "repository": {
     "type": "git",

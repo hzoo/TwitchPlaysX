@@ -59,7 +59,7 @@ function sendKey(command) {
         //use python on windows
         // "VisualBoyAdvance"
         // "DeSmuME 0.9.10 x64"
-        exec("key.py" + "  " + config.programName + " " + key);
+        exec("python key.py" + "  " + config.programName + " " + key);
       } else {
         //Send to preset window under non-windows systems
         exec(

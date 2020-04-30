@@ -12,9 +12,9 @@ let commands = [
   "anarchy",
 ];
 
-let channel = process.env.TWITCH_CHANNEL || "twitchplayspokemon";
+let channel = process.env.TWITCH_CHANNEL || "left_pad";
 let programName =
-  process.env.CONFIG_PROGRAM_NAME|| "VBA";
+  process.env.CONFIG_PROGRAM_NAME || "VisualBoyAdvance";
 let filteredCommands = [];
 let throttledCommands = [];
 
@@ -40,6 +40,6 @@ module.exports = {
   timeToWait: 10000,
 
   // Delay between each possible keypress in milliseconds (can't be too fast)
-  // To change on Windows, change `app/key.py`
+  // To change on Windows, change `key.py`
   delay: 100,
 };

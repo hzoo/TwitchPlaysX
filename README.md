@@ -34,12 +34,12 @@ Currently for Windows, the program has to be focused in order to send keyboard i
 
 ---
 
-- Or modify `app/config.js` at the root of this project
+- Or modify `config.js` at the root of this project
     - `CONFIG_PROGRAM_NAME`: Find out the title of the window that you will be sending key inputs to
         - Example: `VisualBoyAdvance`, `Desmume`
           - For `notepad.exe` it would be "Notepad" or "Untitled - Notepad"
     - `TWITCH_CHANNEL`: the Twitch channel you want to listen for messages on (`twitchplayspokemon`)
-- Depending on the program, you may need to change the controls (in `defaultKeyMap` in `app/keyHandler.js`, `app/keys.py` for windows)
+- Depending on the program, you may need to change the controls (in `defaultKeyMap` in `keyHandler.js`, `keys.py` for windows)
 
 ### Misc
 
