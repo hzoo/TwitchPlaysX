@@ -5,7 +5,6 @@
 import win32api
 import win32con
 import win32gui
-import win32ui
 import time, sys
 
 keyDelay = 0.1
@@ -33,7 +32,7 @@ def SimpleWindowCheck(windowname):
     window = None
     try:
         window = win32gui.FindWindow(windowName, None)
-    except win32ui.error:
+    except win32gui.error:
         try: 
             window = win32gui.FindWindow(None, windowName)
         except win32gui.error:
