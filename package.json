@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "lint": "prettier --write *.js"
+    "lint": "prettier --write *.js",
+    "test": "node -e \"require('child_process').exec('python key.py Notepad a');\""
   },
   "repository": {
     "type": "git",

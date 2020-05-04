@@ -1,3 +1,8 @@
+// change these two variables
+let channel = process.env.TWITCH_CHANNEL || "left_pad";
+let programName =
+  process.env.CONFIG_PROGRAM_NAME || "VisualBoyAdvance";
+  
 // List of commands to check for
 let commands = [
   "left",
@@ -12,9 +17,6 @@ let commands = [
   "anarchy",
 ];
 
-let channel = process.env.TWITCH_CHANNEL || "left_pad";
-let programName =
-  process.env.CONFIG_PROGRAM_NAME || "VisualBoyAdvance";
 let filteredCommands = [];
 let throttledCommands = [];
 

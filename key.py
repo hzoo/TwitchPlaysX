@@ -1,8 +1,10 @@
 # For Windows
 # http://stackoverflow.com/questions/1823762/sendkeys-for-python-3-1-on-windows
+# https://stackoverflow.com/a/38888131
 
 import win32api
 import win32con
+import win32gui
 import win32ui
 import time, sys
 
@@ -21,26 +23,44 @@ keymap = {
     "e": 0x45, # ord("E"),  # Select
 }
 
-import win32gui
-# hwndMain = win32gui.FindWindow("Notepad", None)
-# hwndChild = win32gui.GetWindow(hwndMain, win32con.GW_CHILD)
-# temp = win32api.PostMessage(hwndChild, win32con.WM_CHAR, 0x44, 0)
-
+# this way has to keep window in focus
 def sendKey(button):
     win32api.keybd_event(keymap[button], 0, 0, 0)
     time.sleep(keyDelay)
     win32api.keybd_event(keymap[button], 0, win32con.KEYEVENTF_KEYUP, 0)
 
-if __name__ == "__main__":
-    # win = win32ui.FindWindow(None, sys.argv[1])
-    # win.SetForegroundWindow()
-    # win.SetFocus()
-    # sendKey(sys.argv[2])
-    
-    # win2 = win32gui.FindWindow(sys.argv[1], None)
-    win2 = win32gui.FindWindow("VisualBoyAdvance-M", None)
-    # hwndChild = win32gui.GetWindow(win2, win32con.GW_CHILD)
-    # temp = win32api.PostMessage(hwndChild, win32con.WM_CHAR, 0x42, 0)
-    temp = win32api.PostMessage(win2, win32con.WM_CHAR, 0x42, 0)
+def SimpleWindowCheck(windowname):
+    window = None
+    try:
+        window = win32gui.FindWindow(windowName, None)
+    except win32ui.error:
+        try: 
+            window = win32gui.FindWindow(None, windowName)
+        except win32gui.error:
+            return False
+        else:
+            return window
+    else:
+        return window
 
-# https://stackoverflow.com/a/38888131
+if __name__ == "__main__":
+    windowName = sys.argv[1]
+    key = sys.argv[2]
+
+    winId = SimpleWindowCheck(windowName)
+    
+    if not (winId):
+        windowList = []
+        
+        def enumHandler(hwnd, list):
+            if windowName in win32gui.GetWindowText(hwnd):
+                # print("window text: ", win32gui.GetWindowText(hwnd))
+                list.append(hwnd)
+        
+        win32gui.EnumWindows(enumHandler, windowList)
+        winId = windowList[0]
+        # print("window id: ", winId)
+
+    win32gui.ShowWindow(winId, win32con.SW_SHOWNORMAL)
+    win32gui.SetForegroundWindow(winId)
+    sendKey(key)
