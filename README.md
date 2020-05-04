@@ -16,7 +16,7 @@ Pokemon Red running in a Ubuntu 13.10 VM
 
 ### Caveats
 
-Currently for Windows, the program has to be focused in order to send keyboard inputs so you won't be able to use your computer at the same time unless you run the program in a virtual machine.
+On Windows, the program has to be *focused* in order to send keyboard inputs so you won't be able to use your computer at the same time (unless you run the program in a virtual machine).
 
 ## Installation
 
@@ -24,22 +24,23 @@ Currently for Windows, the program has to be focused in order to send keyboard i
 - Clone the repo: `git clone https://github.com/hzoo/TwitchPlaysX.git`
 - Install `node_modules` in the TwitchPlaysX folder: `npm install`
 - If Linux: install [xdotool](http://www.semicomplete.com/projects/xdotool/): `apt-get install xdotool`
-- If Windows: install [python] and [python win32]
+- If Windows: install [python] and [python win32] (with corresponding versions)
 
 ## Setup
 
-- Start the program you are going to be sending keys to: (VisualBoyAdvance, Desmume)
+- Start the program you are going to be sending keys to: (VisualBoyAdvance, Notepad)
+- Append environment variables or modify `config.js` if you need to change the options: `TWITCH_CHANNEL=mychannelhere npm start`
 - Run the server with `npm start`
-- Append environment variables if you need to change the options: `TWITCH_CHANNEL=mychannelhere npm start`
 
 ---
 
-- Or modify `config.js` at the root of this project
-    - `CONFIG_PROGRAM_NAME`: Find out the title of the window that you will be sending key inputs to (may need to check Task Manager to find out)
-        - Example: `VisualBoyAdvance`, `Desmume`
-          - For `notepad.exe` it would be "Notepad" or "Untitled - Notepad".
-          - If you want to test that the key's are sending correctly, run `npm test` with Notepad opened to see if it sends a key to it.
-    - `TWITCH_CHANNEL`: the Twitch channel you want to listen for messages on (`twitchplayspokemon`)
+### Config
+
+- `CONFIG_PROGRAM_NAME`: Find out the title of the window that you will be sending key inputs to (may need to check Task Manager to find out)
+    - Example: `VisualBoyAdvance`, `Desmume`
+        - For `notepad.exe` it would be "Notepad" or "Untitled - Notepad".
+        - If you want to test that the key's are sending correctly, run `npm test` with Notepad opened to see if it sends a key to it.
+- `TWITCH_CHANNEL`: the Twitch channel you want to listen for messages on (`twitchplayspokemon`)
 - Depending on the program, you may need to change the controls (in `defaultKeyMap` in `keyHandler.js`, `keys.py` for windows)
 
 ### Misc

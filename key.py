@@ -48,18 +48,23 @@ if __name__ == "__main__":
     key = sys.argv[2]
 
     winId = SimpleWindowCheck(windowName)
-    
+    # winId = None
+
     if not (winId):
         windowList = []
         
         def enumHandler(hwnd, list):
             if windowName in win32gui.GetWindowText(hwnd):
-                # print("window text: ", win32gui.GetWindowText(hwnd))
                 list.append(hwnd)
         
         win32gui.EnumWindows(enumHandler, windowList)
+        # only the first id, may need to try the others
         winId = windowList[0]
-        # print("window id: ", winId)
+
+        # can check with this
+        for hwnd in windowList:
+            hwndChild = win32gui.GetWindow(hwnd, win32con.GW_CHILD)
+            # print("window title/id/child id: ", win32gui.GetWindowText(hwnd), "/", hwnd, "/", hwndChild)
 
     win32gui.ShowWindow(winId, win32con.SW_SHOWNORMAL)
     win32gui.SetForegroundWindow(winId)
