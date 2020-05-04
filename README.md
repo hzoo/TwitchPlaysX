@@ -2,7 +2,7 @@
 
 > (inspired by [TwitchPlaysPokemon])
 
-Connect to Twitch's messaging service, (TMI) via [`tmi.js`](https://github.com/tmijs/tmi.js (previously using IRC) to send inputs to a program and stream it, TwitchPlaysPokemon style. Should support linux/windows/mac.
+Connect to Twitch's messaging service, (TMI) via [`tmi.js`](https://github.com/tmijs/tmi.js) (previously using IRC) to send inputs to a program and stream it, TwitchPlaysPokemon style. Should support linux/windows/mac.
 
 ### In Action
 
