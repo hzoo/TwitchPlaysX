@@ -11,7 +11,7 @@ import time, sys
 keyDelay = 0.1
 # https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 keymap = {
-    "Up": 0x26, # win32con.VK_UP,
+    "Up": win32con.VK_UP,
     "Left": win32con.VK_LEFT,
     "Down": win32con.VK_DOWN,
     "Right": win32con.VK_RIGHT,
