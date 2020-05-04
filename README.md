@@ -6,9 +6,9 @@ Connect to Twitch's messaging service, (TMI) via [`tmi.js`](https://github.com/t
 
 ### In Action
 
-![](http://zippy.gfycat.com/ActiveLankyHorsemouse.gif)
+Pokemon on Windows
 
-![](http://zippy.gfycat.com/PoorDirectHuemul.gif)
+![](http://zippy.gfycat.com/ActiveLankyHorsemouse.gif)
 
 Pokemon Red running in a Ubuntu 13.10 VM
 
@@ -22,7 +22,7 @@ On Windows, the program has to be *focused* in order to send keyboard inputs so 
 
 - Install [Node.js] (check that you can run node/npm)
 - Clone the repo: `git clone https://github.com/hzoo/TwitchPlaysX.git`
-- Install `node_modules` in the TwitchPlaysX folder: `npm install`
+- Install `node_modules` in the created folder: `npm install`
 - If Linux: install [xdotool](http://www.semicomplete.com/projects/xdotool/): `apt-get install xdotool`
 - If Windows: install [python] and [python win32] (with corresponding versions)
 
@@ -53,13 +53,11 @@ Using IRC lets you get all the messages; you can't always get all messages throu
 
 - Connect to IRC
 - Use regex to match for certain commands
-  - print out username/message
+- Print out username/message
 - Hook up to a program/emulator
-    - if on windows: probably uses the **win32** api
-        - window has to take focus
+    - if on windows: probably uses the **win32** api (window has to take focus)
     - otherwise: **xdotool**
-- Stream it!
-    - If on linux: you need to use an ffmpeg script, [Twitch-Streamer-Linux](https://github.com/wargio/Twitch-Streamer-Linux), [SimpleScreenRecorder](http://www.maartenbaert.be/simplescreenrecorder/), [WebcamStudio](http://www.ws4gl.org/)
+- Stream it with [OBS](https://obsproject.com)
 
 ### Contributions
 
