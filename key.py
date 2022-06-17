@@ -2,31 +2,25 @@
 # http://stackoverflow.com/questions/1823762/sendkeys-for-python-3-1-on-windows
 # https://stackoverflow.com/a/38888131
 
-import win32api
 import win32con
 import win32gui
 import time, sys
+import pydirectinput
 
-keyDelay = 0.1
-# https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+# https://github.com/learncodebygaming/pydirectinput/blob/a585d044aed678576fefd24e7ad0c5945ab52366/pydirectinput/__init__.py#L48
+# The keys on the left are keys as defined in config.js, the keys on the right are the inputs to be sent
 keymap = {
-    "Up": win32con.VK_UP,
-    "Left": win32con.VK_LEFT,
-    "Down": win32con.VK_DOWN,
-    "Right": win32con.VK_RIGHT,
-    "b": 0x42, # ord("B"),
-    "a": 0x41, # ord("A"),
-    "y": 0x59, # ord("Y"),  # for DS
-    "x": 0x58, # ord("X"),  # for DS
-    "s": 0x53, # ord("S"),  # Start
-    "e": 0x45, # ord("E"),  # Select
+    "Up": 'up',
+    "Left": 'left',
+    "Down": 'down',
+    "Right": 'right',
+    "b": 'b',
+    "a": 'a',
+    "y": 'y', # for DS
+    "x": 'x', # for DS
+    "s": 's', # Start
+    "e": 'e', # Select
 }
-
-# this way has to keep window in focus
-def sendKey(button):
-    win32api.keybd_event(keymap[button], 0, 0, 0)
-    time.sleep(keyDelay)
-    win32api.keybd_event(keymap[button], 0, win32con.KEYEVENTF_KEYUP, 0)
 
 def SimpleWindowCheck(windowname):
     window = None
@@ -67,4 +61,6 @@ if __name__ == "__main__":
 
     win32gui.ShowWindow(winId, win32con.SW_SHOWNORMAL)
     win32gui.SetForegroundWindow(winId)
-    sendKey(key)
+		
+		# this way has to keep window in focus
+    pydirectinput.press(keymap[key])
