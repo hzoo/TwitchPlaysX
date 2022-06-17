@@ -24,7 +24,7 @@ On Windows, the program has to be *focused* in order to send keyboard inputs so 
 - Clone the repo: `git clone https://github.com/hzoo/TwitchPlaysX.git`
 - Install `node_modules` in the created folder: `npm install`
 - If Linux: install [xdotool](http://www.semicomplete.com/projects/xdotool/): `apt-get install xdotool`
-- If Windows: install [python] and [python win32] (with corresponding versions)
+- If Windows: install [python] and [python win32] (with corresponding versions), then install [pydirectinput](https://pypi.org/project/PyDirectInput/) with pip: `pip install pydirectinput`
 
 ## Setup
 
